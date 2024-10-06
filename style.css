@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+body{
+   background-color: #EDDFE0;
+}
+.game{
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    margin-top: 1%;
+   
+    
+}
+h1{
+position: fixed;
+width: 100%;
+text-align: center;
+padding-top: 1%;
+height: 70px;
+background-color: #4A4947;
+}
+#kerdes{
+    padding-bottom: 20%;
+    font-size: 30px;
+    font-weight: 550;
+}
+
+.valaszok {
+    width: 35%;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    height: 60px;
+    border: 3px solid #705C53;
+    border-radius: 45px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: white;
+    font-size: 20px;
+    font-weight: 550;
+  }
+  
+  .valaszok:hover {
+    background: #4A4947;
+    color: white;
+    font-size: 25px;
+  }
+.nemaktiv{
+height: 0px;
+
+} 
+.helyes{
+    position: fixed;
+    bottom: 0;
+    height: 30px;
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 1%;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 550;
+    
+}
+  
+.helytelen{
+    position: fixed;
+    bottom: 0;
+    height: 30px;
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 1%;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 550;
+   
+}
+#kovetkezo {
+    width: 35%;
+    margin-top: 50px;
+    margin-right: 10px;
+    height: 60px;
+    border: 3px solid #705C53;
+    border-radius: 45px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: white;
+    font-size: 20px;
+    font-weight: 550;
+  }
+  
+  #kovetkezo:hover {
+   
+    
+    font-size: 25px;
+  }
+.jo{
+    width: 35%;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    height: 60px;
+    border: 3px solid green;
+    border-radius: 45px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: white;
+    font-size: 20px;
+    font-weight: 550;
+}
+.rossz{
+    width: 35%;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    height: 60px;
+    border: 3px solid red;
+    border-radius: 45px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: white;
+    font-size: 20px;
+    font-weight: 550;
+}
