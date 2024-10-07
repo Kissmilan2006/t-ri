@@ -1,11 +1,13 @@
 
-  
+document.getElementById('kovetkezo').style.display = "none"; 
+document.getElementById('eredmenyjelzo').style.display = "none"; 
+document.getElementsByTagName('h2')[0].style.display = "none"; 
         const kerdesek = [
             { kerdes: "Melyik évben kezdődött a második világháború?", helyesValasz: "1939", hibasValaszok: ["1941", "1945", "1938"] },
             { kerdes: "Ki volt a náci Németország vezetője?", helyesValasz: "Adolf Hitler", hibasValaszok: ["Joseph Goebbels", "Hermann Göring", "Heinrich Himmler"] },
             { kerdes: "Melyik ország támadta meg Lengyelországot 1939-ben?", helyesValasz: "Németország", hibasValaszok: ["Oroszország", "Franciaország", "Anglia"] },
             { kerdes: "Melyik város volt a második világháború alatt az USA bombázási célpontja?", helyesValasz: "Hiroshima", hibasValaszok: ["Tokió", "Nagasaki", "Osaka"] },
-            { kerdes: "Melyik szövetséges országok támadták meg Normandiát 1944-ben?", helyesValasz: "Az Egyesült Államok, Nagy-Britannia és Kanada", hibasValaszok: ["Németország", "Olaszország és Japán", "Szovjetunió és Franciaország"] },
+            { kerdes: "Melyik szövetséges országok támadták meg Normandiát 1944-ben?", helyesValasz: "USA, Nagy-Britannia és Kanada", hibasValaszok: ["Németország", "Olaszország és Japán", "Szovjetunió és Franciaország"] },
             { kerdes: "Mikor ért véget a második világháború Európában?", helyesValasz: "1945. május 8.", hibasValaszok: ["1945. április 30.", "1946. január 1.", "1945. július 1."] },
             { kerdes: "Melyik ország csatlakozott először a Szovjetunióhoz a háború alatt?", helyesValasz: "Lengyelország", hibasValaszok: ["Finnország", "Románia", "Csehszlovákia"] },
             { kerdes: "Milyen hadművelet keretében szálltak partra a szövetségesek Normandiában?", helyesValasz: "D-nap", hibasValaszok: ["Market Garden", "Bagration", "Operation Torch"] },
@@ -43,9 +45,13 @@
         const eredmenyDiv = document.getElementById('eredmeny'); 
         let kerdesekIndex = [];
         let jelenlegiKerdesIndex;
+        let pontok  =0;
         let elozo = null; 
 let kerdesSzamlalo = 0; 
 function kezdes() {
+  
+    document.getElementById('marad').style.display = "none"; 
+    document.getElementById('kovetkezo').style.display = "unset"; 
     kerdesSzamlalo = 1; 
     while (kerdesekIndex.length < 20) {
         const index = Math.floor(Math.random() * kerdesek.length);
@@ -100,6 +106,9 @@ function ellenorizValasz(helyes, hely) {
     
     if (helyes) {
         hely.classList.add("jo");
+        pontok+= 1
+        console.log( document.getElementsByTagName("h2"))
+        document.getElementsByTagName("h2")[0].innerHTML = "pontok:"+pontok
         eredmenyDiv.innerHTML = "Helyes válasz!";
         eredmenyDiv.classList.add("helyes");
         eredmenyDiv.classList.remove("helytelen");
@@ -113,7 +122,11 @@ function ellenorizValasz(helyes, hely) {
     
     elozo = hely;
 
-   
+   document.getElementsByClassName("valaszok")[0].disabled = true;
+   document.getElementsByClassName("valaszok")[1].disabled = true;
+   document.getElementsByClassName("valaszok")[2].disabled = true;
+   document.getElementsByClassName("valaszok")[3].disabled = true;
+    
     if (kerdesekIndex.length === 0) {
         document.getElementById('kovetkezo').innerText = "Kérlek, kezd újra a játékot!";
     }
@@ -122,10 +135,15 @@ document.getElementById('kovetkezo').onclick = () => {
     if (kerdesekIndex.length > 0) {
         betoltKerdes();
     } else {
+        let a =100-pontok / 20 *100
+        console.log(a)
        
         document.getElementById('kovetkezo').style.display = "none"; 
         document.getElementById('eredmeny').style.display = "none"; 
         document.getElementById('game').style.display = "none"; 
+        document.getElementById('eredmenyjelzo').style.display = "block"; 
+        document.getElementsByTagName('h2')[0].style.display = "block"; 
+        document.getElementsByClassName("green")[0].style.height = a+"%";
 
     }
 
@@ -146,7 +164,6 @@ document.getElementById('kovetkezo').onclick = () => {
             }
         }
 
-        kezdes();
-
-
-
+    
+        document.getElementById("marad").onclick = () => kezdes();
+       
